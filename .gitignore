@@ -1,0 +1,22 @@
+# Secretos y variables de entorno
+*.env
+*.key
+*.pem
+secrets/
+
+# Compilados y binarios
+*.exe
+*.o
+*.out
+servidor-go
+
+# Python
+__pycache__/
+*.pyc
+
+# Logs y volcados
+*.log
+
+# Caches de editores
+.vscode/
+.idea/
