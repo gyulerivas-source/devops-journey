@@ -1,4 +1,4 @@
-# Laboratorio Central de Infraestructura Cloud y DevOps
+# DevOps Journey: Laboratorio de Infraestructura y Nube
 
 Repositorio práctico de administración de sistemas, ingeniería de servidores web, contenerización y despliegue continuo.
 
