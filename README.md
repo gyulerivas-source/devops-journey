@@ -1,4 +1,4 @@
-# DevOps & Cloud Infrastructure Lab
+# DevOps Journey - De la Terminal a la Nube
 
 Repositorio práctico de administración de sistemas, ingeniería de servidores web, contenerización y despliegue continuo.
 
