@@ -1,0 +1,36 @@
+name: CI Pipeline - DevOps Lab
+
+# Disparadores: Se ejecuta ante cualquier push o PR a la rama main o ramas feature/*
+on:
+  push:
+    branches: [ "main", "feature/*" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  validate-and-build:
+    name: Lint & Docker Multi-Stage Build
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Clonar el repositorio dentro del runner de GitHub
+      - name: Descargar codigo fuente
+        uses: actions/checkout@v4
+
+      # 2. Validar que la sintaxis de Docker Compose sea correcta
+      - name: Validar archivo docker-compose.yml
+        run: |
+          docker compose -f 02-docker-compose/docker-compose.yml config
+
+      # 3. Compilar la imagen de Go usando Multi-Stage Build
+      - name: Compilar imagen Docker (Multi-Stage)
+        run: |
+          docker build -t app-go:ci-test 03-multistage-build/
+
+      # 4. Probar que el contenedor arranca y responde
+      - name: Test de integracion del contenedor
+        run: |
+          docker run -d --name test-service -p 8080:8080 app-go:ci-test
+          sleep 3
+          curl -f http://localhost:8080 || exit 1
+          docker stop test-service
