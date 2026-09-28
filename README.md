@@ -1,4 +1,4 @@
-# DevOps & Cloud Infrastructure Lab
+# Laboratorio Central de Infraestructura Cloud y DevOps
 
 Repositorio práctico de administración de sistemas, ingeniería de servidores web, contenerización y despliegue continuo.
 
